@@ -7,8 +7,6 @@ public class MergeSort {
 
         int[] nums = {5, 2, 1, 6, 9, 3};
 
-        sort(nums);
-
         System.out.println(Arrays.toString(sort(nums)));
 
     }
@@ -41,7 +39,6 @@ public class MergeSort {
             } else {
                 merged[k] = second[j++];
             }
-
             k++;
         }
 
