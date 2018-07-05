@@ -6,11 +6,25 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        Car c = new Car();
 
-        Audi audi = new Audi();
+        Engine engine = new PetrolEngine();
+        Brake brake = new AbsBrake();
 
-        audi.policy();
+        Car my_car = new Car(brake, engine);
+
+        my_car.start();
+
+        my_car.stop();
+
+        Engine e = new NitroEngine();
+        my_car.changeEngine(e);
+
+        my_car.start();
+
+        my_car.stop();
+
+
+
 
 
     }
