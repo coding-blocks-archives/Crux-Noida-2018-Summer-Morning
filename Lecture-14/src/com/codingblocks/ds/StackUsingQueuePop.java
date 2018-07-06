@@ -1,11 +1,11 @@
 package com.codingblocks.ds;
 
-public class StackUsingQueuePush extends Stack {
+public class StackUsingQueuePop extends Stack {
 
     private Queue first;
     private Queue second;
 
-    public StackUsingQueuePush(){
+    public StackUsingQueuePop(){
         first = new DynamicQueue();
         second = new DynamicQueue();
     }
@@ -22,27 +22,19 @@ public class StackUsingQueuePush extends Stack {
 
     @Override
     public void push(int item) throws Exception {
-        first.insert(item);
-    }
-
-    @Override
-    public int pop() throws Exception {
-
-        int last = 0;
-
         while (!first.isEmpty()){
-            last = first.remove();
-
-            if (!first.isEmpty()){
-                second.insert(last);
-            }
+            second.insert(first.remove());
         }
+
+        first.insert(item);
 
         while (!second.isEmpty()){
             first.insert(second.remove());
         }
+    }
 
-        return last;
-
+    @Override
+    public int pop() throws Exception {
+        return first.remove();
     }
 }
