@@ -37,15 +37,57 @@ public class LinkedList {
 
     }
 
+    public int deleteFirst() throws Exception{
+        if (size == 0){
+            throw new Exception("Empty Linked list");
+        }
+
+        int temp = head.value;
+        head = head.next;
+
+        if (head == null){
+            tail = null;
+        }
+
+        size--;
+
+        return temp;
+
+    }
+
+    public int deleteLast() throws Exception{
+        if (size <= 1){
+            return deleteFirst();
+        }
+
+        Node node = head;
+
+        // reached second last item
+        while (node.next != tail){
+            node = node.next;
+        }
+
+        // value of item to return
+        int temp = tail.value;
+
+        // remove last item
+        tail = node;
+        tail.next = null;
+
+        size--;
+
+        return temp;
+    }
 
 
     public void display(){
         Node node = head;
 
         while (node != null){
-            System.out.println(node.value);
+            System.out.print(node.value + " ");
             node = node.next;
         }
+        System.out.println();
     }
 
     public static class Node {
