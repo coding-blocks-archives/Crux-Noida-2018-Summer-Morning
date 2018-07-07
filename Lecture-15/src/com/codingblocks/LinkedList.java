@@ -81,6 +81,25 @@ public class LinkedList {
         return temp;
     }
 
+    public Node getIndex(int index) {
+        Node node = head;
+
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+
+        return node;
+    }
+
+    public void swap(int first, int second){
+        Node one = getIndex(first);
+        Node two = getIndex(second);
+
+        int temp = one.value;
+        one.value = two.value;
+        two.value = temp;
+    }
+
     public void insert(int value, int index) throws Exception {
         // if you want to add at non existent place
         if (index > size){
@@ -98,10 +117,7 @@ public class LinkedList {
         }
 
         // reach one item before index
-        Node node = head;
-        for (int i = 1; i < index; i++) {
-            node = node.next;
-        }
+        Node node = getIndex(index - 1);
 
         Node temp = new Node(value, node.next); // create and point added node to next node
         node.next = temp; // point prev to added node
@@ -123,10 +139,7 @@ public class LinkedList {
         }
 
         // reach one item before index
-        Node node = head;
-        for (int i = 1; i < index; i++) {
-            node = node.next;
-        }
+        Node node = getIndex(index - 1);
 
         int temp = node.next.value; // value of item to be deleted
         node.next = node.next.next; // skipping ref of deleted node
