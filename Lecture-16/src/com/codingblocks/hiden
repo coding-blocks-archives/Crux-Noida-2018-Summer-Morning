@@ -1,0 +1,14 @@
+    private int max(Node node) {
+
+        if (node.children.size() == 0){
+            return node.value;
+        }
+
+        int m = node.value;
+
+        for (int i = 0; i < node.children.size(); i++) {
+            m  = Math.max(max( node.children.get(i)), m);
+        }
+
+        return m;
+    }
