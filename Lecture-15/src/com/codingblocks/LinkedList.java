@@ -1,5 +1,7 @@
 package com.codingblocks;
 
+import java.util.ArrayList;
+
 public class LinkedList {
 
     public Node head;
@@ -150,6 +152,76 @@ public class LinkedList {
         tail = node;
         tail.next = null;
 
+    }
+
+    public int exists(int value){
+//        return exists(value, head);
+        Node node = head;
+
+        int index = 0;
+
+        while (node != null){
+            if (node.value == value){
+                return index;
+            }
+            node = node.next;
+            index++;
+        }
+
+        return -1;
+    }
+
+    public ArrayList find(int value){
+        Node node = head;
+
+        ArrayList list = new ArrayList();
+
+        int index = 0;
+
+        while (node != null){
+            if (node.value == value){
+                list.add(index);
+            }
+            node = node.next;
+            index++;
+        }
+
+        return list;
+    }
+
+    public void reverseItr(){
+
+        if (size <= 1){
+            return;
+        }
+
+        Node prev = null;
+        Node present = head;
+        Node next = present.next;
+
+        tail = head;
+
+        while (present != null){
+            present.next = prev;
+
+            prev = present;
+            present = next;
+            if (next != null) {
+                next = next.next;
+            }
+        }
+
+        head = prev;
+
+    }
+
+    private boolean exists(int value, Node node) {
+
+        if (node == null){
+            return false;
+        }
+
+        return node.value == value || exists(value, node.next);
     }
 
     public void display(){

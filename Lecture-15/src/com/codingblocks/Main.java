@@ -20,7 +20,7 @@ public class Main {
 
         list.display();
 
-        list.reverse(list.head);
+        list.reverseItr();
 
         list.display();
 
