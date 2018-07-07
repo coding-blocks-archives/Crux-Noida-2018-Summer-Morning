@@ -56,6 +56,25 @@ public class Tree {
         }
     }
 
+    public int count(){
+        return count(root);
+    }
+
+    private int count(Node node) {
+
+        if (node.children.size() == 0){
+            return 1;
+        }
+
+        int sum = 1;
+
+        for (int i = 0; i < node.children.size(); i++) {
+            sum += count( node.children.get(i));
+        }
+
+        return sum;
+    }
+
 
     private class Node {
         private int value;

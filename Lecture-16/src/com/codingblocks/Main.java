@@ -11,5 +11,7 @@ public class Main {
         // 5 3 1 0 2 0 11 1 10 0
 
         tree.display();
+
+        System.out.println(tree.count());
     }
 }
