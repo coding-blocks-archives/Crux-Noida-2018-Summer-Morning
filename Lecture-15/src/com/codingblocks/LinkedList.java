@@ -2,7 +2,7 @@ package com.codingblocks;
 
 public class LinkedList {
 
-    private Node head;
+    public Node head;
     private Node tail;
     private int size;
 
@@ -79,6 +79,78 @@ public class LinkedList {
         return temp;
     }
 
+    public void insert(int value, int index) throws Exception {
+        // if you want to add at non existent place
+        if (index > size){
+            throw new Exception("Index greater than size of list");
+        }
+
+        if(index == 0){
+            insertFirst(value);
+            return;
+        }
+
+        if (index == size){
+            insertLast(value);
+            return;
+        }
+
+        // reach one item before index
+        Node node = head;
+        for (int i = 1; i < index; i++) {
+            node = node.next;
+        }
+
+        Node temp = new Node(value, node.next); // create and point added node to next node
+        node.next = temp; // point prev to added node
+
+        size++;
+
+    }
+
+    public int delete(int index) throws Exception{
+        if (index >= size){
+            throw new Exception("Index not available to delete");
+        }
+
+        if (index == 0){
+            return deleteFirst();
+        }
+        if (index == size - 1){
+            return deleteLast();
+        }
+
+        // reach one item before index
+        Node node = head;
+        for (int i = 1; i < index; i++) {
+            node = node.next;
+        }
+
+        int temp = node.next.value; // value of item to be deleted
+        node.next = node.next.next; // skipping ref of deleted node
+
+        size--;
+
+        return temp;
+
+    }
+
+    public void reverse(Node node){
+
+        if (node == tail){
+            head = tail;
+            return;
+        }
+
+        reverse(node.next);
+
+//        insertLast(node.value);
+
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+
+    }
 
     public void display(){
         Node node = head;
@@ -103,5 +175,13 @@ public class LinkedList {
             this.value = value;
             this.next = next;
         }
+    }
+
+    public int size(){
+        return size;
+    }
+
+    public boolean isEmpty(){
+        return size == 0;
     }
 }

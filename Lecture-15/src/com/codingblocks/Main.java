@@ -11,17 +11,30 @@ public class Main {
         list.insertFirst(40);
         list.insertFirst(10);
 
-        list.insertLast(50);
+        list.insert(60, 0);
+        list.insert(90, 4);
 
         list.display();
 
-        System.out.println(list.deleteFirst());
+        list.insert(30, 2);
+
         list.display();
 
-        System.out.println(list.deleteFirst());
+        list.reverse(list.head);
+
         list.display();
 
-        System.out.println(list.deleteFirst());
-        list.display();
+//        list.insertLast(50);
+//
+//        list.display();
+//
+//        System.out.println(list.deleteFirst());
+//        list.display();
+//
+//        System.out.println(list.deleteFirst());
+//        list.display();
+//
+//        System.out.println(list.deleteFirst());
+//        list.display();
     }
 }
