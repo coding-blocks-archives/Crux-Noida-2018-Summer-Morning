@@ -23,6 +23,7 @@ public class BinaryTree {
             int value = scanner.nextInt();
             node.left = new Node(value);
             node.left.parent = node;
+            populate(node.left, scanner);
         }
 
         System.out.println("Want to add right value?");
@@ -32,6 +33,7 @@ public class BinaryTree {
             int value = scanner.nextInt();
             node.right = new Node(value);
             node.right.parent = node;
+            populate(node.right, scanner);
         }
     }
 
