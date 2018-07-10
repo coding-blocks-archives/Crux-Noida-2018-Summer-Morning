@@ -16,7 +16,7 @@ public class BinaryTree {
     }
 
     private void populate(Node node, Scanner scanner) {
-        System.out.println("Want to add left value?");
+        System.out.println("Want to add left value of " + node.value);
         boolean left = scanner.nextBoolean();
         if (left){
             System.out.println("Enter left value of " + node.value);
@@ -26,7 +26,7 @@ public class BinaryTree {
             populate(node.left, scanner);
         }
 
-        System.out.println("Want to add right value?");
+        System.out.println("Want to add right value " + node.value);
         boolean right = scanner.nextBoolean();
         if (right){
             System.out.println("Enter right value of " + node.value);
