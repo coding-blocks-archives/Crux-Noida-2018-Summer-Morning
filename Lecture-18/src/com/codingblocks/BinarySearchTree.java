@@ -18,6 +18,24 @@ public class BinarySearchTree {
 
     }
 
+    public void populate(int[] data){
+        populate(data, 0, data.length - 1);
+    }
+
+    private void populate(int[] data, int start, int end) {
+
+        if (start > end){
+            return;
+        }
+
+        int mid = (start + end) / 2;
+
+        insert(data[mid]);
+
+        populate(data, start, mid - 1);
+        populate(data, mid + 1, end);
+    }
+
     private void insert(int value, Node node) {
         if (node.value == value){
             node.count++;
