@@ -124,6 +124,36 @@ public class BinarySearchTree {
         return isBST(node.left, node.value, min) && isBST(node.right, max, node.value);
     }
 
+    public Node rightRotate(Node node){
+
+        // before swap
+        Node x = node;
+        Node y = node.left;
+        Node t2 = y.right;
+
+
+        // after swap
+        y.right = x;
+        x.left = t2;
+
+        return y;
+    }
+
+    public Node leftRotate(Node node){
+
+        // before swap
+        Node y = node;
+        Node x = y.right;
+        Node t2 = x.left;
+
+
+        // after swap
+        x.left = y;
+        y.right = t2;
+
+        return x;
+    }
+
     private class Node {
         private int value;
         private Node left;
