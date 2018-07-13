@@ -7,20 +7,17 @@ public class Main {
 
         LinkedList list = new LinkedList();
 
-        list.insertFirst(20);
-        list.insertFirst(40);
-        list.insertFirst(10);
-
-        list.insert(60, 0);
-        list.insert(90, 4);
-
-        list.display();
-
-        list.insert(30, 2);
+        list.insertLast(2);
+        list.insertLast(1);
+        list.insertLast(5);
+        list.insertLast(7);
+        list.insertLast(8);
+        list.insertLast(6);
+        list.insertLast(3);
 
         list.display();
 
-        list.reverseItr();
+        list.kReverse(3);
 
         list.display();
 
