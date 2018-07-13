@@ -9,13 +9,13 @@ public class Main {
 
         BinarySearchTree tree = new BinarySearchTree();
 
-        int[] data = {32,34, 43, 45, 23,67, 25};
-
-        Arrays.sort(data);
+        for (int i = 0; i < 100; i++) {
+            tree.insert(i);
+        }
 
 //        tree.display();
 
-        tree.populate(data);
+
 
         tree.display();
 

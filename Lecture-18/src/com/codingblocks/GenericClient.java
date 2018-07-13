@@ -2,14 +2,13 @@ package com.codingblocks;
 
 public class GenericClient {
     public static void main(String[] args) {
-//        BinarySearchTreeGeneric<Integer> tree = new BinarySearchTreeGeneric<>();
-//
-//        tree.insert(10);
-//        tree.insert(5);
-//        tree.insert(3);
-//
+        BinarySearchTreeGeneric<Integer> tree = new BinarySearchTreeGeneric<>();
+
+        for (int i = 0; i < 100000; i++) {
+            tree.insert(i);
+        }
 //        tree.display();
-//
+
 //        BinarySearchTreeGeneric<String> tree = new BinarySearchTreeGeneric<>();
 //
 //        tree.insert("sdfdgfh");
@@ -21,13 +20,13 @@ public class GenericClient {
 //
 //        tree.display();
 
-        BinarySearchTreeGeneric<Human> tree = new BinarySearchTreeGeneric<>();
-
-        tree.insert(new Human("Anuj", 24));
-        tree.insert(new Human("Mohan", 20));
-        tree.insert(new Human("Krish", 25));
-
-        tree.display();
+//        BinarySearchTreeGeneric<Human> tree = new BinarySearchTreeGeneric<>();
+//
+//        tree.insert(new Human("Anuj", 24));
+//        tree.insert(new Human("Mohan", 20));
+//        tree.insert(new Human("Krish", 25));
+//
+//        tree.display();
 
     }
 }

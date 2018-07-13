@@ -26,8 +26,19 @@ public class BinarySearchTreeGeneric <T extends Comparable> {
 
         node.height = Math.max(height(node.left), height(node.right)) + 1;
 
-
-
+        if (balance(node) > 1 && balance(node.left) > 0){
+            return rightRotate(node);
+        }
+        else if (balance(node) < -1 && balance(node.right) < 0){
+            return leftRotate(node);
+        }
+        else if (balance(node) > 1 && balance(node.left) < 0){
+            node.left = leftRotate(node.left);
+            return rightRotate(node);
+        } else if (balance(node) < -1 && balance(node.right) > 0){
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
+        }
 
         return node;
 
@@ -60,6 +71,9 @@ public class BinarySearchTreeGeneric <T extends Comparable> {
         y.right = x;
         x.left = t2;
 
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+
         return y;
     }
 
@@ -73,6 +87,9 @@ public class BinarySearchTreeGeneric <T extends Comparable> {
         // after swap
         x.left = y;
         y.right = t2;
+
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
 
         return x;
     }
