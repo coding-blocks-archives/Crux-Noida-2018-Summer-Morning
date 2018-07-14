@@ -1,0 +1,3 @@
+apple : A sweet red fruit
+mango : King of fruits
+banana : Love of hostelers
