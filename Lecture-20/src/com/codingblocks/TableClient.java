@@ -10,5 +10,11 @@ public class TableClient {
         String res = map.get("apple");
 
         System.out.println(res);
+
+        map.remove("apple");
+
+        res = map.get("apple");
+
+        System.out.println(res);
     }
 }
