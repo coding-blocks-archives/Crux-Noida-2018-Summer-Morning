@@ -22,14 +22,52 @@ public class HeapGeneric <T extends Comparable<T>>  {
 
         if (items.get(index).compareTo(items.get(parent)) < 0){
             swap(index, parent);
+            upheap(parent);
         }
+    }
+
+    public T minimum(){
+        return items.get(0);
+    }
+
+    public boolean isEmpty(){
+        return items.isEmpty();
+    }
+
+    public void remove(){
+        T data = items.remove(items.size() - 1);
+        if (!isEmpty()){
+            items.set(0, data);
+            downheap(0);
+        }
+    }
+
+    private void downheap(int ci) {
+        int left = left(ci);
+        int right = right(ci);
+
+        int min = ci;
+
+        if (left < items.size() && items.get(left).compareTo(items.get(min)) < 0){
+            min = left;
+        }
+
+        if (right < items.size() && items.get(right).compareTo(items.get(min)) < 0){
+            min = right;
+        }
+
+        if (ci != min){
+            swap(ci, min);
+            downheap(min);
+        }
+
 
     }
 
     private void swap(int first, int second) {
-        T t = items.get(first);
+        T temp = items.get(first);
         items.set(first, items.get(second));
-        items.set(second, t);
+        items.set(second, temp);
     }
 
     private int left(int index){
