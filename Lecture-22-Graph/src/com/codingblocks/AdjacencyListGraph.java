@@ -1,9 +1,6 @@
 package com.codingblocks;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 public class AdjacencyListGraph<T> {
 
@@ -64,6 +61,112 @@ public class AdjacencyListGraph<T> {
         }
 
         System.out.println();
+
+    }
+
+    public void DFS(){
+        if (vertices.isEmpty()){
+            return;
+        }
+
+        Set<Vertex> set = new HashSet<>();
+        Stack<Vertex> stack = new Stack<>();
+
+        Vertex vertex = vertices.get(0);
+
+        set.add(vertex);
+        stack.add(vertex);
+
+        while (!stack.isEmpty()){
+            Vertex v = stack.pop();
+
+            System.out.print(v.value + " ");
+
+            for (Vertex padosi : v.nbrs) {
+                if (!set.contains(padosi)){
+                    set.add(padosi);
+                    stack.add(padosi);
+                }
+            }
+        }
+
+        System.out.println();
+
+    }
+
+    public void shortestPath(){
+        if (vertices.isEmpty()){
+            return;
+        }
+
+        int dist = 0;
+
+        Set<Vertex> set = new HashSet<>();
+        Queue<Vertex> queue = new LinkedList<>();
+
+        Vertex vertex = vertices.get(0);
+
+        set.add(vertex);
+        queue.add(vertex);
+        queue.add(null);
+
+        while (queue.size() > 1){
+            Vertex v = queue.remove();
+
+            if (v == null){
+                dist++;
+                queue.add(null);
+                continue;
+            }
+
+            System.out.println(v.value + " " + dist);
+
+            for (Vertex padosi : v.nbrs) {
+                if (!set.contains(padosi)){
+                    set.add(padosi);
+                    queue.add(padosi);
+                }
+            }
+        }
+
+        System.out.println();
+
+    }
+
+    public void connectedComponents(){
+        if (vertices.isEmpty()){
+            return;
+        }
+
+        Set<Vertex> set = new HashSet<>();
+        Queue<Vertex> queue = new LinkedList<>();
+
+        for (Vertex vertex : vertices) {
+
+            if (set.contains(vertex)){
+                continue;
+            }
+
+            set.add(vertex);
+            queue.add(vertex);
+
+            while (!queue.isEmpty()){
+                Vertex v = queue.remove();
+
+                System.out.print(v.value + " ");
+
+                for (Vertex padosi : v.nbrs) {
+                    if (!set.contains(padosi)){
+                        set.add(padosi);
+                        queue.add(padosi);
+                    }
+                }
+            }
+
+            System.out.println();
+        }
+
+
 
     }
 

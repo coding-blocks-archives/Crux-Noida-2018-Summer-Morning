@@ -18,6 +18,8 @@ public class Main {
         graph.addVertex("I");
 
         graph.addEdge("A", "D");
+        graph.addEdge("A", "E");
+        graph.addEdge("A", "B");
         graph.addEdge("D", "E");
         graph.addEdge("E", "B");
         graph.addEdge("E", "H");
@@ -26,7 +28,7 @@ public class Main {
         graph.addEdge("H", "I");
         graph.addEdge("H", "G");
 
-        graph.BFS();
+        graph.DFS();
 
 
     }
