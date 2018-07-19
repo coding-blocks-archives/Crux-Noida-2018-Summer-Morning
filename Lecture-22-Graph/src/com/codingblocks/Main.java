@@ -18,7 +18,6 @@ public class Main {
         graph.addVertex("I");
 
         graph.addEdge("A", "D");
-        graph.addEdge("A", "E");
         graph.addEdge("A", "B");
         graph.addEdge("D", "E");
         graph.addEdge("E", "B");
@@ -28,7 +27,7 @@ public class Main {
         graph.addEdge("H", "I");
         graph.addEdge("H", "G");
 
-        graph.DFS();
+        System.out.println(graph.bipartite());;
 
 
     }

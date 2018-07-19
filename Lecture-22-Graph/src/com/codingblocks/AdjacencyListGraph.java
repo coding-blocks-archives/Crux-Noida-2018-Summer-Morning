@@ -94,6 +94,52 @@ public class AdjacencyListGraph<T> {
 
     }
 
+    public boolean bipartite(){
+        if (vertices.isEmpty()){
+            return true;
+        }
+
+        Set<Vertex> set = new HashSet<>();
+
+        Set<Vertex> red = new HashSet<>();
+        Set<Vertex> black = new HashSet<>();
+
+        Stack<Vertex> stack = new Stack<>();
+
+        Vertex vertex = vertices.get(0);
+        red.add(vertex);
+
+        set.add(vertex);
+        stack.add(vertex);
+
+        while (!stack.isEmpty()){
+            Vertex v = stack.pop();
+
+            for (Vertex padosi : v.nbrs) {
+
+                if (red.contains(v) && red.contains(padosi)){
+                    return false;
+                } else if (red.contains(v)){
+                    black.add(padosi);
+                }
+
+                if (black.contains(v) && black.contains(padosi)){
+                    return false;
+                } else if (black.contains(v)){
+                    red.add(padosi);
+                }
+
+                if (!set.contains(padosi)){
+                    set.add(padosi);
+                    stack.add(padosi);
+                }
+            }
+        }
+
+        return true;
+
+    }
+
     public void shortestPath(){
         if (vertices.isEmpty()){
             return;
