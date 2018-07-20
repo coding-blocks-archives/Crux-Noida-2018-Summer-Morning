@@ -16,7 +16,7 @@ public class Main {
         graph.addEdge("A", "B");
         graph.addEdge("C", "D");
         graph.addEdge("A", "C");
-        graph.addEdge("D", "B");
+        graph.addEdge("D", "B ");
 
 
         System.out.println(graph.isCyclic());
