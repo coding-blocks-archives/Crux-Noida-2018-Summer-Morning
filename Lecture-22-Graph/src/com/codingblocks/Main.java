@@ -12,22 +12,14 @@ public class Main {
         graph.addVertex("C");
         graph.addVertex("D");
         graph.addVertex("E");
-        graph.addVertex("F");
-        graph.addVertex("G");
-        graph.addVertex("H");
-        graph.addVertex("I");
 
-        graph.addEdge("A", "D");
         graph.addEdge("A", "B");
-        graph.addEdge("D", "E");
-        graph.addEdge("E", "B");
-        graph.addEdge("E", "H");
-        graph.addEdge("B", "C");
-        graph.addEdge("C", "F");
-        graph.addEdge("H", "I");
-        graph.addEdge("H", "G");
+        graph.addEdge("C", "D");
+        graph.addEdge("A", "C");
+        graph.addEdge("D", "B");
 
-        System.out.println(graph.bipartite());;
+
+        System.out.println(graph.isCyclic());
 
 
     }

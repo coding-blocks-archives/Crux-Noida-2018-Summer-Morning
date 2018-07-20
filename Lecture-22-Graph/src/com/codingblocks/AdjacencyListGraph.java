@@ -20,7 +20,7 @@ public class AdjacencyListGraph<T> {
 
         if (s != null && e != null){
             s.nbrs.add(e);
-            e.nbrs.add(s);
+            //e.nbrs.add(s);
         }
     }
 
@@ -177,6 +177,40 @@ public class AdjacencyListGraph<T> {
 
         System.out.println();
 
+    }
+
+    public boolean isCyclic(){
+        Map<Vertex, Vertex> parents = new HashMap<>();
+
+        for (Vertex vertex : vertices) {
+            parents.put(vertex, null);
+        }
+
+        for (Vertex vertex : vertices) {
+            for (Vertex padosi : vertex.nbrs) {
+                if (find(vertex, parents) == find(padosi, parents)){
+                    return true;
+                } else {
+                    union(vertex, padosi, parents);
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private void union(Vertex vertex, Vertex padosi, Map<Vertex, Vertex> parents) {
+
+        parents.put(find(padosi, parents), find(vertex, parents));
+
+    }
+
+    private Vertex find(Vertex vertex, Map<Vertex, Vertex> parents){
+        if (parents.get(vertex) == null){
+            return vertex;
+        }
+
+        return find(parents.get(vertex), parents);
     }
 
     public void connectedComponents(){
